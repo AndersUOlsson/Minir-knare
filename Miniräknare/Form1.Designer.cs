@@ -30,6 +30,7 @@
         {
             this.Displaylbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.invertNumberBtn = new System.Windows.Forms.Button();
             this.zeroBtn = new System.Windows.Forms.Button();
             this.commaBtn = new System.Windows.Forms.Button();
             this.threeBtn = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.minusBtn = new System.Windows.Forms.Button();
             this.multiplicationBtn = new System.Windows.Forms.Button();
             this.dividedBtn = new System.Windows.Forms.Button();
-            this.invertNumberBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +91,17 @@
             this.panel1.Size = new System.Drawing.Size(246, 291);
             this.panel1.TabIndex = 1;
             // 
+            // invertNumberBtn
+            // 
+            this.invertNumberBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invertNumberBtn.Location = new System.Drawing.Point(8, 234);
+            this.invertNumberBtn.Name = "invertNumberBtn";
+            this.invertNumberBtn.Size = new System.Drawing.Size(54, 46);
+            this.invertNumberBtn.TabIndex = 31;
+            this.invertNumberBtn.Text = "±";
+            this.invertNumberBtn.UseVisualStyleBackColor = true;
+            this.invertNumberBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
+            // 
             // zeroBtn
             // 
             this.zeroBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -100,6 +111,7 @@
             this.zeroBtn.TabIndex = 30;
             this.zeroBtn.Text = "0";
             this.zeroBtn.UseVisualStyleBackColor = true;
+            this.zeroBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // commaBtn
             // 
@@ -120,6 +132,7 @@
             this.threeBtn.TabIndex = 28;
             this.threeBtn.Text = "3";
             this.threeBtn.UseVisualStyleBackColor = true;
+            this.threeBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // twoBtn
             // 
@@ -130,6 +143,7 @@
             this.twoBtn.TabIndex = 27;
             this.twoBtn.Text = "2";
             this.twoBtn.UseVisualStyleBackColor = true;
+            this.twoBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // oneBtn
             // 
@@ -140,6 +154,7 @@
             this.oneBtn.TabIndex = 26;
             this.oneBtn.Text = "1";
             this.oneBtn.UseVisualStyleBackColor = true;
+            this.oneBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // sixBtn
             // 
@@ -150,6 +165,7 @@
             this.sixBtn.TabIndex = 25;
             this.sixBtn.Text = "6";
             this.sixBtn.UseVisualStyleBackColor = true;
+            this.sixBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // fiveBtn
             // 
@@ -160,6 +176,7 @@
             this.fiveBtn.TabIndex = 24;
             this.fiveBtn.Text = "5";
             this.fiveBtn.UseVisualStyleBackColor = true;
+            this.fiveBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // fourBtn
             // 
@@ -170,6 +187,7 @@
             this.fourBtn.TabIndex = 23;
             this.fourBtn.Text = "4";
             this.fourBtn.UseVisualStyleBackColor = true;
+            this.fourBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // sevenBtn
             // 
@@ -180,6 +198,7 @@
             this.sevenBtn.TabIndex = 22;
             this.sevenBtn.Text = "7";
             this.sevenBtn.UseVisualStyleBackColor = true;
+            this.sevenBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // eightBtn
             // 
@@ -190,6 +209,7 @@
             this.eightBtn.TabIndex = 21;
             this.eightBtn.Text = "8";
             this.eightBtn.UseVisualStyleBackColor = true;
+            this.eightBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // nineBtn
             // 
@@ -200,6 +220,7 @@
             this.nineBtn.TabIndex = 20;
             this.nineBtn.Text = "9";
             this.nineBtn.UseVisualStyleBackColor = true;
+            this.nineBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // CEbtn
             // 
@@ -240,6 +261,7 @@
             this.equalBtn.TabIndex = 16;
             this.equalBtn.Text = "=";
             this.equalBtn.UseVisualStyleBackColor = true;
+            this.equalBtn.MouseCaptureChanged += new System.EventHandler(this.giveResult);
             // 
             // plusBtn
             // 
@@ -250,6 +272,7 @@
             this.plusBtn.TabIndex = 15;
             this.plusBtn.Text = "+";
             this.plusBtn.UseVisualStyleBackColor = true;
+            this.plusBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // minusBtn
             // 
@@ -260,6 +283,7 @@
             this.minusBtn.TabIndex = 14;
             this.minusBtn.Text = "-";
             this.minusBtn.UseVisualStyleBackColor = true;
+            this.minusBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // multiplicationBtn
             // 
@@ -270,6 +294,7 @@
             this.multiplicationBtn.TabIndex = 13;
             this.multiplicationBtn.Text = "×";
             this.multiplicationBtn.UseVisualStyleBackColor = true;
+            this.multiplicationBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // dividedBtn
             // 
@@ -280,16 +305,7 @@
             this.dividedBtn.TabIndex = 12;
             this.dividedBtn.Text = "÷";
             this.dividedBtn.UseVisualStyleBackColor = true;
-            // 
-            // invertNumberBtn
-            // 
-            this.invertNumberBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invertNumberBtn.Location = new System.Drawing.Point(8, 234);
-            this.invertNumberBtn.Name = "invertNumberBtn";
-            this.invertNumberBtn.Size = new System.Drawing.Size(54, 46);
-            this.invertNumberBtn.TabIndex = 31;
-            this.invertNumberBtn.Text = "±";
-            this.invertNumberBtn.UseVisualStyleBackColor = true;
+            this.dividedBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // Form1
             // 
