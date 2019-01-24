@@ -86,7 +86,7 @@
             this.panel1.Controls.Add(this.minusBtn);
             this.panel1.Controls.Add(this.multiplicationBtn);
             this.panel1.Controls.Add(this.dividedBtn);
-            this.panel1.Location = new System.Drawing.Point(12, 89);
+            this.panel1.Location = new System.Drawing.Point(13, 85);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(246, 291);
             this.panel1.TabIndex = 1;
@@ -122,6 +122,7 @@
             this.commaBtn.TabIndex = 29;
             this.commaBtn.Text = ",";
             this.commaBtn.UseVisualStyleBackColor = true;
+            this.commaBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // threeBtn
             // 
@@ -231,6 +232,7 @@
             this.CEbtn.TabIndex = 19;
             this.CEbtn.Text = "CE";
             this.CEbtn.UseVisualStyleBackColor = true;
+            this.CEbtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // Cbtn
             // 
@@ -241,6 +243,7 @@
             this.Cbtn.TabIndex = 18;
             this.Cbtn.Text = "C";
             this.Cbtn.UseVisualStyleBackColor = true;
+            this.Cbtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // button10
             // 
@@ -251,6 +254,7 @@
             this.button10.TabIndex = 17;
             this.button10.Text = "Delete";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
             // 
             // equalBtn
             // 
@@ -311,7 +315,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 387);
+            this.ClientSize = new System.Drawing.Size(271, 388);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.Displaylbl);
             this.Name = "Form1";

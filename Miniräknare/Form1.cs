@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Miniräknare
@@ -13,28 +7,47 @@ namespace Miniräknare
     public partial class Form1 : Form
     {
         private readonly Calculator _calculator = new Calculator();
+        private int counter = 0;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-       
-        //TODO: print result to the label. 
-
         private void Btn_MouseClick(object sender, MouseEventArgs e)
         {
-            _calculator.setOperation((sender as Button)?.Text);
+            counter = 0;
+            _calculator.setOperation((sender as Button)?.Text, Displaylbl);
         }
 
         private void Number_Btn_MouseClick(object sender, MouseEventArgs e)
         {
-            _calculator.setNumber(double.Parse((sender as Button)?.Text ?? throw new InvalidOperationException()));
+            counter = 0;
+             _calculator.setNumber(double.Parse((sender as Button)?.Text ?? throw new InvalidOperationException()), Displaylbl);
+
+             if (_calculator.Operation.ElementAt(1).Equals(","))
+             {
+                giveResult(sender, e);
+                counter = 0;
+             }
+                 
         }
 
         private void giveResult(object sender, EventArgs e)
         {
-            _calculator.Calculate();
+            if (counter < 1)
+            {
+                counter++;
+                double result = _calculator.Calculate(Displaylbl);
+                string text = (result == 32) ? Displaylbl.Text = "Error!" : Displaylbl.Text = result.ToString();
+                Displaylbl.Text = text;
+               
+            }
+        }
+
+        private void dividedBtn_MouseClick(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }
