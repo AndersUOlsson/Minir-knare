@@ -16,6 +16,8 @@ namespace Miniräknare
             Operation.Add("");
         }
 
+
+        //This function thus the calculation depending of the operation for instent +,- etc.
         public double Calculate(Control display)  
         {
             int size = numbers.Count-1;
@@ -40,54 +42,57 @@ namespace Miniräknare
                         numbers.Insert(size + 1, (numbers.ElementAt(size - 1) * numbers.ElementAt(size)));
                         return numbers.ElementAt(size + 1);
 
-                    case ",":
+                    //case ",":
                         
-                        numbers.Insert(size + 1, (numbers.ElementAt(size - 1) + (numbers.ElementAt(size) / 10)));
+                    //    numbers.Insert(size + 1, (numbers.ElementAt(size - 1) + (numbers.ElementAt(size) / 10)));
 
-                        if ((numbers.ElementAt(size - 1) + (numbers.ElementAt(size))/10) == numbers.ElementAt(size + 1))
-                        {
-                            numbers.Insert(size - 1, numbers.ElementAt(size + 1));
-                            return numbers.ElementAt(size - 1);
-                        }
-                        else 
-                            return numbers.ElementAt(size + 1);
+                    //    if ((numbers.ElementAt(size - 1) + (numbers.ElementAt(size))/10) == numbers.ElementAt(size + 1))
+                    //    {
+                    //        numbers.Insert(size - 1, numbers.ElementAt(size + 1));
+                    //        return numbers.ElementAt(size - 1);
+                    //    }
+                    //    else 
+                    //        return numbers.ElementAt(size + 1);
 
                     default:
                         return ' ';
                 }
             }
-
+            //Make it possible to have floating point numbers before other numbers to operate on. 
             if (Operation.ElementAt(1).Equals(",") && !Operation.ElementAt(0).Equals(""))
             {
-                numbers.Insert(size + 1, (numbers.ElementAt(size - 1) + (numbers.ElementAt(size) / 10)));
 
-                if ((numbers.ElementAt(size - 1) + (numbers.ElementAt(size)) / 10) == numbers.ElementAt(size + 1))
-                {
-                    numbers.Insert(size - 1, numbers.ElementAt(size + 1));
-                    Operation.Insert(1,"");
-                    for (int i = numbers.Count-1; i > 1; i--)
-                    {
-                        numbers.RemoveAt(i);
-                    }
-                    size = numbers.Count - 1;
-                    return numbers.ElementAt(size);
-                }
+                //TODO: Fixa så komma blir bra 
 
-                Operation.RemoveAt(1);
-                return numbers.ElementAt(size + 1);
+
+                //if ((numbers.ElementAt(size - 1) + (numbers.ElementAt(size)) / 10) == numbers.ElementAt(size + 1))
+                //{
+                //    numbers.Insert(size - 1, numbers.ElementAt(size + 1));
+                //    Operation.RemoveAt(1);
+                //    Operation.Insert(1,"");
+                //    for (int i = numbers.Count-1; i > 1; i--)
+                //    {
+                //        numbers.RemoveAt(i);
+                //    }
+                //    size = numbers.Count - 1;
+                //    return numbers.ElementAt(size);
+                //}
+
+                //Operation.RemoveAt(1);
+              
+                return numbers.ElementAt(size - 1);
             }
 
-            Console.WriteLine("JElle");
+            //Make it possible to have floating point numbers after other numbers to operate on. 
             numbers.Insert(size + 1, (numbers.ElementAt(size - 1) + (numbers.ElementAt(size) / 10)));
-
-           
-
             Operation.RemoveAt(1);
+            Operation.Insert(1,"");
             return numbers.ElementAt(size + 1);
 
        
         }
 
+        //Adds the number from keyboard in a buffer (numbers)
         public void setNumber(double d, Control display)
         {
             numbers.Add(d);

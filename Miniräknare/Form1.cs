@@ -44,10 +44,5 @@ namespace Miniräknare
                
             }
         }
-
-        private void dividedBtn_MouseClick(object sender, MouseEventArgs e)
-        {
-
-        }
     }
 }
