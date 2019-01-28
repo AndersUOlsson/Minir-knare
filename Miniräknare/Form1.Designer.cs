@@ -122,7 +122,7 @@
             this.commaBtn.TabIndex = 29;
             this.commaBtn.Text = ",";
             this.commaBtn.UseVisualStyleBackColor = true;
-            this.commaBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
+            this.commaBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Number_Btn_MouseClick);
             // 
             // threeBtn
             // 
