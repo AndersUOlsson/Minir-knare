@@ -9,6 +9,7 @@ namespace Miniräknare
         private readonly Calculator calculator = new Calculator();
       
         public string number;
+        public static bool flag = false;
 
         public Form1()
         {
@@ -22,6 +23,7 @@ namespace Miniräknare
             Displaylbl.Text = (sender as Button)?.Text ?? throw new InvalidOperationException();
             number = string.Empty;
             calculator.SetOperation((sender as Button)?.Text, Displaylbl);
+            flag = true;
         }
 
         //Listen for the number the user wants to operate on.
@@ -29,16 +31,22 @@ namespace Miniräknare
         {
             number += (sender as Button)?.Text ?? throw new InvalidOperationException();
             Displaylbl.Text = number;
+            flag = true;
         }
 
         //Will genrate and display the result of the number and operation. 
         private void GiveResult(object sender, EventArgs e)
         {
-            calculator.SetNumber(number);
-            double result = calculator.Calculate(Displaylbl);
-            string text = (result == 32) ? Displaylbl.Text = "Error!" : Displaylbl.Text = result.ToString();
-            Displaylbl.Text = text;
-            number = string.Empty;
+            if(flag)
+            {
+                calculator.SetNumber(number);
+                double result = calculator.Calculate(Displaylbl);
+                string text = (result == 32) ? Displaylbl.Text = "Error!" : Displaylbl.Text = result.ToString();
+                Displaylbl.Text = text;
+                number = string.Empty;
+                flag = false;
+            }
+            
         }
     }
 }
