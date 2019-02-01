@@ -7,7 +7,7 @@ namespace Miniräknare
 {
     class Calculator
     {
-        public List<string> Operation = new List<string>();
+        public List<string> operation = new List<string>();
         private List<double> numbers = new List<double>();
         private int size;
         private int opSize;
@@ -17,9 +17,9 @@ namespace Miniräknare
         public double Calculate(Control display)  
         {
             size = numbers.Count;
-            opSize = Operation.Count;
+            opSize = operation.Count;
 
-            switch (Operation.ElementAt(opSize-1))
+            switch (operation.ElementAt(opSize-1))
             {
                 case "-":
                     numbers.Add(numbers.ElementAt(size - 2) - numbers.ElementAt(size - 1));
@@ -43,7 +43,7 @@ namespace Miniräknare
         }
 
         //Adds the number from keyboard in a buffer (numbers)
-        public void setNumber(string number)
+        public void SetNumber(string number)
         {
             if (number == "")
                 return;
@@ -51,7 +51,9 @@ namespace Miniräknare
                 numbers.Add(double.Parse(number));
         }
 
-        public void setOperation(string operation, Control display)
+        //This is the function for the rest of operations that the calculate can do 
+        //like delete, invert value etc. 
+        public void SetOperation(string operation, Control display)
         {
             
             switch (operation)
@@ -83,7 +85,7 @@ namespace Miniräknare
                     break;
 
                 default:
-                    Operation.Add(operation); 
+                    this.operation.Add(operation); 
                     break;
             }
         }

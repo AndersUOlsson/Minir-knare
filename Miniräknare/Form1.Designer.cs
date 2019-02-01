@@ -265,7 +265,7 @@
             this.equalBtn.TabIndex = 16;
             this.equalBtn.Text = "=";
             this.equalBtn.UseVisualStyleBackColor = true;
-            this.equalBtn.MouseCaptureChanged += new System.EventHandler(this.giveResult);
+            this.equalBtn.MouseCaptureChanged += new System.EventHandler(this.GiveResult);
             // 
             // plusBtn
             // 
