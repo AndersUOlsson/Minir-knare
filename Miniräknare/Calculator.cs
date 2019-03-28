@@ -11,8 +11,6 @@ namespace Miniräknare
         private List<double> numbers = new List<double>();
         private int size;
         private int opSize;
-        
-
 
         //This function thus the calculation depending of the operation for instent +,- etc.
         public double Calculate(Control display)  
@@ -26,6 +24,7 @@ namespace Miniräknare
                 {
                     case "-":
                         numbers.Add(numbers.ElementAt(size - 2) - numbers.ElementAt(size - 1));
+
                         return numbers.ElementAt(size);
 
                     case "+":
@@ -55,28 +54,32 @@ namespace Miniräknare
         {
             try
             {
-                if (number == "")
+                if (number == "" || number == null || number == ",")
+                {
                     return;
+                }
                 else
+                {
                     numbers.Add(double.Parse(number));
+                }
             }
             catch(Exception e)
             {
-                throw;
+                throw  e;
             } 
-            
         }
 
-        //This is the function for the rest of operations that the calculate can do 
-        //like delete, invert value etc. 
+        //This is the function for the rest of operations that the calculate can do. 
         public void SetOperation(string operation, Control display)
         {
-            
             switch (operation)
             {
                 case "Delete":
-                    numbers.Remove(numbers.Count-1);
-                    display.Text = string.Empty;
+                    if(numbers.ToArray().Length != 0)
+                    {
+                        numbers.RemoveAt(numbers.Count - 1);
+                        display.Text = string.Empty;
+                    }
                     break;
 
                 case "CE":
@@ -85,19 +88,11 @@ namespace Miniräknare
                     break;
 
                 case "C":
-                    display.Text = string.Empty;
-                    break;
-
-                case "±":
-                    if (size > 0)
+                    if (numbers.ToArray().Length != 0)
                     {
-                        numbers.Add(numbers.ElementAt(size) * -1);
-                        display.Text = numbers.ElementAt(size + 1).ToString();
-                        size = numbers.Count - 1;
+                        numbers.RemoveAt(numbers.Count - 1);
+                        display.Text = string.Empty;
                     }
-                    else
-                        display.Text = numbers.ElementAt(size).ToString();
-                    
                     break;
 
                 default:

@@ -30,7 +30,6 @@
         {
             this.Displaylbl = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.invertNumberBtn = new System.Windows.Forms.Button();
             this.zeroBtn = new System.Windows.Forms.Button();
             this.commaBtn = new System.Windows.Forms.Button();
             this.threeBtn = new System.Windows.Forms.Button();
@@ -66,7 +65,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.invertNumberBtn);
             this.panel1.Controls.Add(this.zeroBtn);
             this.panel1.Controls.Add(this.commaBtn);
             this.panel1.Controls.Add(this.threeBtn);
@@ -91,23 +89,12 @@
             this.panel1.Size = new System.Drawing.Size(246, 291);
             this.panel1.TabIndex = 1;
             // 
-            // invertNumberBtn
-            // 
-            this.invertNumberBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invertNumberBtn.Location = new System.Drawing.Point(8, 234);
-            this.invertNumberBtn.Name = "invertNumberBtn";
-            this.invertNumberBtn.Size = new System.Drawing.Size(54, 46);
-            this.invertNumberBtn.TabIndex = 31;
-            this.invertNumberBtn.Text = "±";
-            this.invertNumberBtn.UseVisualStyleBackColor = true;
-            this.invertNumberBtn.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Btn_MouseClick);
-            // 
             // zeroBtn
             // 
             this.zeroBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.zeroBtn.Location = new System.Drawing.Point(68, 233);
+            this.zeroBtn.Location = new System.Drawing.Point(8, 233);
             this.zeroBtn.Name = "zeroBtn";
-            this.zeroBtn.Size = new System.Drawing.Size(54, 46);
+            this.zeroBtn.Size = new System.Drawing.Size(114, 46);
             this.zeroBtn.TabIndex = 30;
             this.zeroBtn.Text = "0";
             this.zeroBtn.UseVisualStyleBackColor = true;
@@ -348,7 +335,6 @@
         private System.Windows.Forms.Button multiplicationBtn;
         private System.Windows.Forms.Button dividedBtn;
         private System.Windows.Forms.Button commaBtn;
-        private System.Windows.Forms.Button invertNumberBtn;
     }
 }
 

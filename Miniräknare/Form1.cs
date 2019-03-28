@@ -8,8 +8,8 @@ namespace Miniräknare
     {
         private readonly Calculator calculator = new Calculator();
       
-        public string number;
-        public static bool flag = false;
+        private string number;
+        private static bool flag = false;
 
         public Form1()
         {
@@ -24,6 +24,25 @@ namespace Miniräknare
             number = string.Empty;
             calculator.SetOperation((sender as Button)?.Text, Displaylbl);
             flag = true;
+            
+
+
+            if(((Control)sender).Text == "CE" || ((Control)sender).Text == "C" || ((Control)sender).Text == "Delete")
+            {
+                plusBtn.Enabled = true;
+                minusBtn.Enabled = true;
+                dividedBtn.Enabled = true;
+                multiplicationBtn.Enabled = true;
+            }
+            else
+            {
+                plusBtn.Enabled = false;
+                minusBtn.Enabled = false;
+                dividedBtn.Enabled = false;
+                multiplicationBtn.Enabled = false;
+            }
+            
+            
         }
 
         //Listen for the number the user wants to operate on.
@@ -44,9 +63,12 @@ namespace Miniräknare
                 string text = (result == 32) ? Displaylbl.Text = "Error!" : Displaylbl.Text = result.ToString();
                 Displaylbl.Text = text;
                 number = string.Empty;
-                flag = false;
+                flag                      = false;
+                plusBtn.Enabled           = true;
+                minusBtn.Enabled          = true;
+                dividedBtn.Enabled        = true;
+                multiplicationBtn.Enabled = true;
             }
-            
         }
     }
 }
